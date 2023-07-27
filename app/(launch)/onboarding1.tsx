@@ -1,20 +1,42 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { Button } from "@ant-design/react-native";
 import { Link } from "expo-router";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_600SemiBold,
+} from "@expo-google-fonts/inter";
 
 const OnBoarding1 = () => {
+  let [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>On boarding 1</Text>
+        <Image
+          source={require("../../assets/images/AM-Insights-Logo.png")}
+          style={styles.logo}
+        ></Image>
         <Image
           source={require("../../assets/images/launch/onboarding1.png")}
-          style={styles.image}
+          style={styles.imageOnboard}
         ></Image>
+        <View>
+          <Text style={styles.subTitle}>
+            The easy way to view your fund performance
+          </Text>
+        </View>
+        <Link href="/onboarding2" style={styles.button}>
+          <Text>Next</Text>
+        </Link>
 
-        <Text>The easy way to view your fund performance</Text>
-        <Link href="/onboarding2">
-          <Text style={styles.title}>Next</Text>
+        <Link href="/onboarding2" style={styles.subOption}>
+          <Text>Don’t have an account?</Text>
         </Link>
       </View>
     </View>
@@ -25,28 +47,47 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    padding: 24,
+    padding: 12,
     backgroundColor: "#0072E6",
     color: "white",
   },
   main: {
     flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+    justifyContent: "space-evenly",
+    // maxWidth: 960,
+    // marginHorizontal: "auto",
   },
-  title: {
+  subTitle: {
+    fontFamily: "Inter_600SemiBold",
     fontSize: 32,
-    fontWeight: "bold",
+    fontWeight: "600",
     color: "white",
+    lineHeight: 38,
+    textAlign: "left",
+  },
+  button: {
+    textAlign: "center",
+    padding: 10,
+    borderRadius: 4,
+    backgroundColor: "#FFFFFF",
+    color: "#007AFF",
+  },
+  subOption: {
+    textAlign: "center",
+    color: "#FFFFFF",
   },
   subtitle: {
     fontSize: 36,
     color: "#38434D",
   },
-  image: {
+  logo: {
+    justifyContent: "flex-start",
     resizeMode: "contain",
+  },
+  imageOnboard: {
     justifyContent: "center",
+    resizeMode: "contain",
+    width: "auto",
   },
 });
 
