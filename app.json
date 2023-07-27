@@ -5,6 +5,23 @@
       "bundler": "metro"
     },
     "name": "expo-app-test",
-    "slug": "expo-app-test"
+    "slug": "expo-app-test",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "splash": {
+        "image": "./assets/images/splash.png",
+        "resizeMode": "contain"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png"
+      }
+    }
   }
 }
