@@ -35,7 +35,7 @@ const OnBoarding1 = () => {
           <Text>Next</Text>
         </Link>
 
-        <Link href="/onboarding2" style={styles.subOption}>
+        <Link href="/onboarding1" style={styles.subOption}>
           <Text>Don’t have an account?</Text>
         </Link>
       </View>
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     justifyContent: "space-evenly",
-    // maxWidth: 960,
-    // marginHorizontal: "auto",
+    maxWidth: 960,
+    marginHorizontal: "auto",
   },
   subTitle: {
     fontFamily: "Inter_600SemiBold",
